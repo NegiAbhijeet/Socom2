@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import CarouselMain from '../components/carousel/index'
 import MainHeading from '../components/mainHeading/index';
+import Header from './Header';
 
 const cols = 3;
 const marginHorizontal = 4;
@@ -17,7 +18,7 @@ const Card = (props) => {
   return (
     <View style={Styles.container} key={props.id}>
       <View style={Styles.card}>
-        <Image style={Styles.card_img} source={{ uri: props.imgSrc }} />
+        {/* <Image style={Styles.card_img} source={{ uri: props.imgSrc }} /> */}
         <Text style={Styles.card_text}>{props.cardText}</Text>
       </View>
       <Text style={{ textAlign: 'center', fontSize: 10, marginTop: 10 }}>{props.cardHeading}</Text>
@@ -27,6 +28,9 @@ const Card = (props) => {
 
 const First = () => {
   return (
+    <View>
+      <Header/>
+
     <ScrollView>
       <MainHeading text='Popular Live' />
       <CarouselMain />
@@ -46,6 +50,7 @@ const First = () => {
         <Image style={{ width: '100%', aspectRatio: 3 / 2, resizeMode: 'cover' }} source={{ uri: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg' }} />
       </View>
     </ScrollView>
+    </View>
   )
 }
 

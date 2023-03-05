@@ -3,6 +3,7 @@ import React from 'react';
 
 import MainHeading from '../components/mainHeading/index';
 import Card from '../components/cards/index';
+import Header from './Header';
 
 const data = [
   { id: 1, imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ7s56292QmjcgxIAOJGODlr-3rBjgNVjR3g&usqp=CAU', title: 'Demo', cardHeading: 'Demo head' },
@@ -11,7 +12,8 @@ const data = [
 ]
 const Second = () => {
   return (
-    <View>
+    <View >
+      <Header isLabel={true} label={"Live Shop"}/>
       <MainHeading text='Fashion' />
       <View style={{ flexDirection: 'row', flexWrap: "wrap", gap: 8, justifyContent: 'center' }}>
         {data.map((item) => {
