@@ -3,6 +3,7 @@ import React from 'react';
 
 import SearchBar from '../components/searchbar/index';
 import PersonProfile from '../components/profilePerson/index';
+import Header from './Header';
 
 const data = [
     {
@@ -20,6 +21,7 @@ const data = [
 const Fourth = () => {
     return (
         <SafeAreaView>
+                  <Header isLabel={true} label={"Stores"}/>
             <View style={styles.SearchBarContainer}><SearchBar /></View>
             <FlatList
                 data={data}
