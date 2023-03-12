@@ -1,27 +1,23 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { useState, useEffect } from "react"
-import Second from './second';
-import Third from './third';
-import Fourth from './fourth';
+import { useState } from "react"
+import Following from './stores/Following';
+import Suggested from './stores/Suggested';
+import Header from '../components/header/Header';
 
-const Test = () => {
+
+const Stores = () => {
     const [toggleState, setToggleState] = useState(1);
-    const [loading, setloading] = useState(1);
 
     const tabs = [
         {
             id: 1,
-            title: 'Live now',
+            title: 'Following',
         },
         {
             id: 2,
-            title: 'For You',
+            title: 'Suggested',
         },
-        {
-            id: 3,
-            title: 'Popular',
-        }
     ]
 
     const toggleTab = (index) => {
@@ -37,34 +33,9 @@ const Test = () => {
     }
 
         
-
-    // function Page1() {
-    //     return <p>Hello world!1</p>
-    // }
-    
-    // function Page2() {
-    //     return <p>Hello world!2</p>
-    // }
-
-    // function Page3() {
-    //     return <p>Hello world!3</p>
-    // }
-
-    // const components = {
-    //     'page1': Page1,
-    //     'page2': Page2,
-    //     'page3': Page3
-    // }
-
-    // const [currElem, setCurrElem]=useState('page1');
-    // function loadComp(){
-    //     useEffect(()=>{
-    //         const elem=<Second />
-    //     })
-    // }
-    
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+            <Header isLabel={true} label={"Stores"}/>
             <View style={{ alignItems: 'center', justifyContent: 'center', }}>
                 <View style={{ flexDirection: 'row', }}>
                     {
@@ -82,33 +53,30 @@ const Test = () => {
                 </View>
             </View>
 
-            <ScrollView style={{ width: '95%'}}>
+            <View style={{ width: '95%'}}>
                 <View style={toggleState == 1 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
-                    <Second />
+                    <Following />
                 </View>
                 <View style={toggleState == 2 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
-                    <Third />
+                    <Suggested />
                 </View>
-                <View style={toggleState == 3 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
-                <Second />
-                </View>
-            </ScrollView>
+            </View>
         </View>
     )
 }
 
-export default Test;
+export default Stores;
 
 const styles = StyleSheet.create({
     MyTabs: {
-        width: '31%',
+        width: '47%',
         borderBottomColor: '#909090',
         borderBottomWidth: 3,
         padding: 10,
     },
     MyTabText: {
         textAlign: 'center',
-        color: 'white'
+        color: 'black'
     },
     activeText: {
         color: '#FFBF23'

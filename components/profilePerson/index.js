@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontSize: 12,
+    color: 'black'
   },
   followerText: {
     fontSize: 10,

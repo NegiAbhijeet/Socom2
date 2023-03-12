@@ -1,39 +1,46 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { useState, useEffect } from "react"
-import Second from './second';
-import Third from './third';
-import Fourth from './fourth';
+import { useState } from "react"
+import LiveNow from './liveshop/LiveNow';
+import ForYou from './liveshop/ForYou';
+import Popular from './liveshop/Popular';
+import Header from '../components/header/Header';
 
-const Test2 = () => {
+const LiveShop = () => {
     const [toggleState, setToggleState] = useState(1);
+    const [loading, setloading] = useState(1);
 
     const tabs = [
         {
             id: 1,
-            title: 'Following',
+            title: 'Live now',
         },
         {
             id: 2,
-            title: 'Suggested',
+            title: 'For You',
         },
+        {
+            id: 3,
+            title: 'Popular',
+        }
     ]
 
     const toggleTab = (index) => {
         setToggleState(index);
     };
 
-    const Loader=()=>{
-        return(
+    const Loader = () => {
+        return (
             <View>
                 <Text>Loading...</Text>
             </View>
         );
     }
 
-        
+
     return (
-        <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <Header isLabel={true} label={"Live Shop"} />
             <View style={{ alignItems: 'center', justifyContent: 'center', }}>
                 <View style={{ flexDirection: 'row', }}>
                     {
@@ -51,30 +58,33 @@ const Test2 = () => {
                 </View>
             </View>
 
-            <ScrollView style={{ width: '95%'}}>
+            <ScrollView style={{ width: '95%' }}>
                 <View style={toggleState == 1 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
-                    <Fourth />
+                    <LiveNow />
                 </View>
                 <View style={toggleState == 2 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
-                    <Third />
+                    <ForYou />
+                </View>
+                <View style={toggleState == 3 ? [styles.TabContent, styles.activeContent] : [styles.TabContent]}>
+                    <Popular />
                 </View>
             </ScrollView>
         </View>
     )
 }
 
-export default Test2;
+export default LiveShop;
 
 const styles = StyleSheet.create({
     MyTabs: {
-        width: '47%',
+        width: '31%',
         borderBottomColor: '#909090',
         borderBottomWidth: 3,
         padding: 10,
     },
     MyTabText: {
         textAlign: 'center',
-        color: 'white'
+        color: 'black'
     },
     activeText: {
         color: '#FFBF23'

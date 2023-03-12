@@ -11,9 +11,8 @@ import LoginScreen from './pages/Login';
 function App(): JSX.Element {
   return (
 
-      <LoginScreen />
+      <First />
 
-   
   );
 }
 

@@ -1,9 +1,9 @@
-import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import React from 'react';
 
-import SearchBar from '../components/searchbar/index';
-import PersonProfile from '../components/profilePerson/index';
-import Header from './Header';
+import SearchBar from '../../components/searchbar/index';
+import PersonProfile from '../../components/profilePerson/index';
+
 
 const data = [
     {
@@ -16,12 +16,12 @@ const data = [
         title: 'Item 2',
         image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
     },
+    
 
 ];
-const Fourth = () => {
+const Following = () => {
     return (
-        <SafeAreaView>
-                  <Header isLabel={true} label={"Stores"}/>
+        <>
             <View style={styles.SearchBarContainer}><SearchBar /></View>
             <FlatList
                 data={data}
@@ -31,15 +31,14 @@ const Fourth = () => {
                         <PersonProfile {...item} />
                     )
                 }} />
-        </SafeAreaView>
+        </>
     )
 }
 
-export default Fourth;
+export default Following;
 
 const styles = StyleSheet.create({
     SearchBarContainer: {
-        marginTop: 10,
-        padding: 10
+        marginVertical: 10,
     }
 })

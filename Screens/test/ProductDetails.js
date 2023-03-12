@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { Button } from 'react-native-elements/dist/buttons/Button';
+import { View, Text, Image, StyleSheet,  ScrollView } from 'react-native';
 import MyButton from '../components/Button/index';
 import SizeSelector from './SizeChart';
+
 
 const ProductDetails = () => {
     const product = {
@@ -42,29 +42,37 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 2,
         elevation: 2,
+        backgroundColor: 'white',
+        color: 'black',
     },
     image: {
         width: '100%',
-        aspectRatio: 7 / 9,
+        aspectRatio: 4 / 5,
+        
     },
     detailsContainer: {
-        padding: 10
+        padding: 10,
+        color: 'black',
     },
     title: {
         fontSize: 16,
         marginBottom: 8,
+        color: 'black',
     },
     brand: {
         fontSize: 14,
         marginBottom: 8,
+        color: 'black',
     },
     price: {
         fontSize: 16,
         marginBottom: 8,
+        color:'#FA3131'
     },
     description: {
         fontSize: 12,
         marginBottom: 16,
+        color: 'black',
     },
 });
 

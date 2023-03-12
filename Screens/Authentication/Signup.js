@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, KeyboardAvoidingView, Dimensions } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, KeyboardAvoidingView, Dimensions } from 'react-native';
 
-const LoginScreen = () => {
+const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -12,8 +12,7 @@ const LoginScreen = () => {
     return (
         <View style={styles.outerContainer}>
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <Text style={styles.title}>Welcome,</Text>
-                <Text style={{ fontSize: 24, color: 'black', marginVertical: 10 }}>Good to see you !</Text>
+                <Text style={{ fontSize: 24, color: 'black',  color: 'white' }}>Create Account</Text>
                 <View style={styles.innerContainer}>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -27,20 +26,23 @@ const LoginScreen = () => {
                         <TextInput
                             style={styles.input}
                             placeholder="Password"
+                            value={email}
+                            onChangeText={(text) => setEmail(text)}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Confirm Password"
                             secureTextEntry={true}
                             value={password}
                             onChangeText={(text) => setPassword(text)}
                         />
                     </View>
 
-                    <View style={{ width: '100%' }}>
-                        <Text style={{ textAlign: 'right' }}>Forgot password?</Text>
-                    </View>
-
-
-
-                    <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                        <Text style={styles.loginText}>Login</Text>
+                    
+                    <TouchableOpacity style={styles.yellowButton} onPress={handleLogin}>
+                        <Text style={styles.loginText}>Signup</Text>
                     </TouchableOpacity>
 
                     <View style={{
@@ -52,7 +54,7 @@ const LoginScreen = () => {
                             style={{
                                 textAlign: 'center', backgroundColor: '#526DCE',
                                 position: 'relative', bottom: 10, paddingHorizontal: 20
-                            }}>Or Login with</Text>
+                            }}>Or Sign up with</Text>
                     </View>
 
                     <View style={{
@@ -60,12 +62,15 @@ const LoginScreen = () => {
                         alignItems: 'center', justifyContent: 'space-between',
                     }}>
                         <TouchableOpacity style={styles.bottomButtons} onPress={handleLogin}>
-                            <Text style={styles.loginText}>Login</Text>
+                            <Image style={{width: 40, height: 40}} source={require("../../img/google.png")} />
+                            
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.bottomButtons} onPress={handleLogin}>
-                            <Text style={styles.loginText}>Login</Text>
+                            <Image style={{width: 40, height: 40}} source={require("../../img/facebook.png")} />
                         </TouchableOpacity>
                     </View>
+
+                    <Text style={{marginBottom: 20}}>Already have an account ? Login Now</Text>
                 </View>
             </KeyboardAvoidingView>
         </View>
@@ -76,24 +81,17 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
     outerContainer: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#526DCE',
         position: 'relative'
     },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-    },
-    container: {
 
+    container: {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
         width: '100%',
         bottom: 0,
         minHeight: Dimensions.get('window').height * 0.5
-
-
     },
     innerContainer: {
         alignItems: 'center',
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingHorizontal: 20,
         backgroundColor: '#526DCE',
-        paddingVertical: 30,
+        paddingVertical: 10,
         borderTopLeftRadius: 50,
     },
     title: {
@@ -121,20 +119,12 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingVertical: 10,
     },
-    loginButton: {
+    yellowButton: {
         backgroundColor: '#FFBF23',
         width: '100%',
-        paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 10,
         marginTop: 20,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
         elevation: 11,
         textAlign: 'center'
     },
@@ -146,12 +136,14 @@ const styles = StyleSheet.create({
     bottomButtons: {
         width: 140,
         backgroundColor: 'white',
-        paddingVertical: 10,
+        paddingVertical: 5,
         borderRadius: 8,
         borderColor: '#FFBF23',
         borderWidth: 1, 
-        marginBottom: 30
+        alignItems: 'center', 
+        justifyContent: 'center',
+        marginBottom: 50
     }
 });
 
-export default LoginScreen;
+export default Signup;

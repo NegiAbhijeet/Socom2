@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
-//import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -9,7 +8,7 @@ export default function Header(props) {
     const navigation = useNavigation();
 
     return (
-        <View style={{ flexDirection: 'row', backgroundColor: 'white', padding: 15, alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', backgroundColor: 'white', padding: 15, alignItems: 'center'}}>
 
             {props.isLabel &&
                 <Text style={{ color: '#000000',fontSize:16 }}>{props.label}</Text>

@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
-import MainHeading from '../components/mainHeading/index';
-import Card from '../components/cards/index';
+import MainHeading from '../../components/mainHeading/index';
+import Card from '../../components/cards/index';
 
 
 const data = [
@@ -15,10 +15,10 @@ const Third = () => {
   return (
     <View>
       <MainHeading text='Products' />
-      <View style={{ flexDirection:'row', flexWrap: "wrap", gap: 8 , justifyContent: 'center'}}>
+      <View style={{ flexDirection: 'row', flexWrap: "wrap", gap: 8, justifyContent: 'center' }}>
         {
-          data.map((item)=>{
-            return <Card key={item.id} imgUrl={item.imgSrc} title={item.title} />
+          data.map((item) => {
+            return <Card key={item.id} imgUrl={item.imgSrc} title={item.cardText} />
           })
         }
       </View>

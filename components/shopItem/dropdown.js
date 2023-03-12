@@ -1,92 +1,65 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Dropdown } from 'react-native-element-dropdown';
+import { View, Text, StyleSheet } from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown';
 
-const data = [
-  { label: 'Item 1', value: '1' },
-  { label: 'Item 2', value: '2' },
-  { label: 'Item 3', value: '3' },
-  { label: 'Item 4', value: '4' },
-];
+const options = ['Size: M', 'XL', 'XL', 'XL'];
 
-const DropdownComponent = () => {
-  const [value, setValue] = useState();
-  const [isFocus, setIsFocus] = useState(false);
+const Dropdown = () => {
+  const [selectedOption, setSelectedOption] = useState(options[0]);
 
-  const renderLabel = () => {
-    if (value || isFocus) {
-      return (
-        <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-          Dropdown label
-        </Text>
-      );
-    }
-    return null;
+  const handleOptionSelect = (value) => {
+    setSelectedOption(value);
   };
 
   return (
     <View style={styles.container}>
-      {renderLabel()}
-      <Dropdown
-        statusBarIsTranslucent={true}
-        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        data={data}
-        search
-        maxHeight={300}
-        minHeight={100}
-        labelField="label"
-        valueField="value"
-        placeholder={!isFocus ? 'Size : M' : '...'}
-        searchPlaceholder="Search..."
-        value={value}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
-        onChange={(item) => {
-          setValue(item.value);
-          setIsFocus(false);
-        }}
+      <SelectDropdown
+        data={options}
+        onSelect={(value) => handleOptionSelect(value)}
+        defaultValue={selectedOption}
+        buttonStyle={styles.dropdownButton}
+        buttonTextStyle={styles.dropdownButtonText}
+        dropdownStyle={styles.dropdown}
+        rowStyle={styles.dropdownRow}
+        rowTextStyle={styles.dropdownRowText}
+        // renderDropdownIcon={true}
+        dropdownIconPosition={'right'}
+        dropdownIconStyle={styles.dropdownIcon}
       />
     </View>
   );
 };
 
-export default DropdownComponent;
-
 const styles = StyleSheet.create({
-  container: {
+
+
+  dropdownButton: {
     backgroundColor: '#D9D9D9',
+    width: 90,
+    height: 35
+  },
+  dropdownButtonText: {
+    fontSize: 16,
+    textAlign: 'center',
   },
   dropdown: {
-    height: 35,
-    width: 90,
-    paddingHorizontal: 8,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
+    backgroundColor: '#F2F2F2',
+    width: 150
+  },
+  dropdownRowText: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  dropdownIcon: {
+    fontSize: 16,
+    color: 'black',
   },
   label: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    left: 22,
-    top: 8,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
-  },
-  placeholderStyle: {
-    fontSize: 12,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
-  },
+    color: 'black'
+  }
 });
+
+export default Dropdown;

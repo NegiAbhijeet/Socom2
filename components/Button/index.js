@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-
+import { TouchableOpacity, Text, StyleSheet,View } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 const MyButton = (props) => {
     return (
         <TouchableOpacity style=
@@ -11,9 +11,9 @@ const MyButton = (props) => {
             }
         >
             {props.buttonType === 'wishlist' ?
-                < Text style={styles.buttonText}>WishList</Text>
+                <Text style={styles.buttonText}><MaterialCommunityIcons style={styles.buttonIcon} name="heart-outline" /> WishList</Text>
                 : props.buttonType === 'addToCart' ?
-                    < Text style={styles.buttonText}>Add to Cart</Text>
+                    < Text style={styles.buttonText}><MaterialCommunityIcons style={styles.buttonIcon} name="cart-outline" /> Add to Cart</Text>
                     : ''
 
             }
@@ -38,10 +38,14 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
+    buttonIcon:{
+        fontSize: 22, marginHorizontal: 100
+    },
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#fff',
+        
     },
     wishlist: {
         backgroundColor: '#FFBF23'

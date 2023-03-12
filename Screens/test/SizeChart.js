@@ -33,24 +33,26 @@ const SizeSelector = () => {
 
 const styles = StyleSheet.create({
     container:{
-        marginVertical: 10
+        marginVertical: 10,
+        color: 'black',
     },
   label: {
     fontSize: 16,
     marginBottom: 8,
+    color: 'black',
   },
   buttonsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   sizeButton: {
-    padding: 8,
-    height: 40,
-    width: 40,
-    borderRadius: 20,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     marginHorizontal: 4,
     marginVertical: 4,
-    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
   },
   sizeButtonText: {
     fontSize: 16,
-    color: '#666',
+    color: 'black',
   },
   selectedSizeButtonText: {
     color: '#fff',
