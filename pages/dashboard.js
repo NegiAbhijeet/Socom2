@@ -16,6 +16,7 @@ import Third from './third';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './Login';
 import Test from './test';
+import Account from './account';
 
 
 const Stack = createStackNavigator();
@@ -28,6 +29,7 @@ export default function App() {
     <Stack.Navigator headerMode={'none'}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="TabNav" component={TabNav} />
+      <Stack.Screen name="accont" component={Account} />
 
     </Stack.Navigator>
     </NavigationContainer>
@@ -80,10 +82,10 @@ function MyTabs() {
                   <Icon name="home" color={color} size={size} />
                 ),
               }} />
-            <Tab.Screen  name="Live Shope" component={Test} 
+            <Tab.Screen  name="Live Shop" component={Test} 
               options={{
                 headerShown: false,
-                tabBarLabel: 'Live Shope',
+                tabBarLabel: 'Live Shop',
                 tabBarIcon: ({ color, size }) => (
                   <MaterialIcons name="live-tv" color={color} size={size} />
                 ),
@@ -104,7 +106,7 @@ function MyTabs() {
                   <Icon name="storefront" color={color} size={size} />
                 ),
               }} />
-            <Tab.Screen name="Profile" component={Notification}
+            <Tab.Screen name="Profile" component={Account}
              options={{
                 headerShown: false,
                 tabBarLabel: 'Profile',

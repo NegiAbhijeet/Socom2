@@ -9,7 +9,7 @@ export default function Header(props) {
     const navigation = useNavigation();
 
     return (
-        <View style={{ flexDirection: 'row', backgroundColor: 'white', padding: 15, alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', padding: 15, alignItems: 'center' }}>
 
             {props.isLabel &&
                 <Text style={{ color: '#000000',fontSize:16 }}>{props.label}</Text>

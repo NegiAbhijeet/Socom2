@@ -36,9 +36,9 @@ const First = () => {
       {/* <Test/> */}
       <CarouselMain />
 
-      {/* <MainHeading text='Recommended Live' /> */}
+      <MainHeading text='Recommended Live' />
       {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} scrollEventThrottle={16}
-        style={{ flexDirection: 'row', width: '100%' }}>
+        style={{ flexDirection: 'row', flex:1 }}>
         {
           recLiveData.map((item) => {
             return (<Card {...item} />);

@@ -7,6 +7,9 @@ import First from './pages/first';
 import Fourth from './pages/fourth';
 import Second from './pages/second';
 import LoginScreen from './pages/Login';
-
+import Account from './pages/account';
+import Setting from './pages/setting';
+import HelpCentre from './pages/helpcentre';
+import Address from './pages/address';
 
 AppRegistry.registerComponent(appName, () => Dasboard);
