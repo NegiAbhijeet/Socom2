@@ -13,13 +13,33 @@ import First from './first';
 import Second from './second';
 import Fourth from './fourth';
 import Third from './third';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './Login';
+import Test from './test';
+import Account from './account';
 
+
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+  return (
+    <NavigationContainer >
+    <Stack.Navigator headerMode={'none'}>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="TabNav" component={TabNav} />
+      <Stack.Screen name="accont" component={Account} />
+
+    </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+function TabNav() {
     return (
-        <NavigationContainer>
+        // <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home" 
                screenOptions={{
                 headerShown: false,
@@ -28,10 +48,9 @@ export default function App() {
                 <Drawer.Screen name="Home" component={MyTabs} />
                 <Drawer.Screen name="Notifications" component={Notification} />
             </Drawer.Navigator>
-        </NavigationContainer>
+        // </NavigationContainer>
     );
 }
-
 
 function MyTabs() {
     const screenOptions = {
@@ -63,10 +82,10 @@ function MyTabs() {
                   <Icon name="home" color={color} size={size} />
                 ),
               }} />
-            <Tab.Screen  name="Live Shope" component={Second} 
+            <Tab.Screen  name="Live Shop" component={Test} 
               options={{
                 headerShown: false,
-                tabBarLabel: 'Live Shope',
+                tabBarLabel: 'Live Shop',
                 tabBarIcon: ({ color, size }) => (
                   <MaterialIcons name="live-tv" color={color} size={size} />
                 ),
@@ -87,7 +106,7 @@ function MyTabs() {
                   <Icon name="storefront" color={color} size={size} />
                 ),
               }} />
-            <Tab.Screen name="Profile" component={Notification}
+            <Tab.Screen name="Profile" component={Account}
              options={{
                 headerShown: false,
                 tabBarLabel: 'Profile',

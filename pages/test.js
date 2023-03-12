@@ -4,11 +4,13 @@ import { useState, useEffect } from "react"
 import Second from './second';
 import Third from './third';
 import Fourth from './fourth';
+import Header from './Header';
 
 const Test = () => {
+    
     const [toggleState, setToggleState] = useState(1);
     const [loading, setloading] = useState(1);
-
+    
     const tabs = [
         {
             id: 1,
@@ -31,6 +33,7 @@ const Test = () => {
     const Loader=()=>{
         return(
             <View>
+                
                 <Text>Loading...</Text>
             </View>
         );
@@ -64,9 +67,12 @@ const Test = () => {
     // }
     
     return (
+        
         <View style={{ alignItems: 'center', justifyContent: 'center'}}>
+            <Header isLabel={true} label={"Live Shop"}/>
             <View style={{ alignItems: 'center', justifyContent: 'center', }}>
                 <View style={{ flexDirection: 'row', }}>
+                    
                     {
                         tabs.map((item) => {
                             return (

@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View, Image, Dimensions } from 'react-nat
 import CarouselMain from '../components/carousel/index'
 import MainHeading from '../components/mainHeading/index';
 import Header from './Header';
-
+import Test from './test';
 const cols = 3;
 const marginHorizontal = 4;
 const width = (Dimensions.get('window').width / cols) - (marginHorizontal * (cols));
@@ -18,7 +18,7 @@ const Card = (props) => {
   return (
     <View style={Styles.container} key={props.id}>
       <View style={Styles.card}>
-        {/* <Image style={Styles.card_img} source={{ uri: props.imgSrc }} /> */}
+        <Image style={Styles.card_img} source={{ uri: props.imgSrc }} />
         <Text style={Styles.card_text}>{props.cardText}</Text>
       </View>
       <Text style={{ textAlign: 'center', fontSize: 10, marginTop: 10 }}>{props.cardHeading}</Text>
@@ -33,17 +33,18 @@ const First = () => {
 
     <ScrollView>
       <MainHeading text='Popular Live' />
+      {/* <Test/> */}
       <CarouselMain />
 
       <MainHeading text='Recommended Live' />
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} scrollEventThrottle={16}
-        style={{ flexDirection: 'row', width: '100%' }}>
+      {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} scrollEventThrottle={16}
+        style={{ flexDirection: 'row', flex:1 }}>
         {
           recLiveData.map((item) => {
             return (<Card {...item} />);
           })
         }
-      </ScrollView>
+      </ScrollView> */}
 
       <MainHeading text='Upcoming Live' />
       <View style={{ width: '100%' }}>

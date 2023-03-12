@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground, KeyboardAvoidingView, Dimensions } from 'react-native';
+import App from './dashboard';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigation = useNavigation();
 
     const handleLogin = () => {
         // Your login logic goes here
+        navigation.navigate('TabNav')
     };
+    
 
     return (
         <View style={styles.outerContainer}>
@@ -45,8 +50,8 @@ const LoginScreen = () => {
 
                     <View style={{
                         width: '100%', borderTopColor: 'white',
-                        borderTopWidth: 1, alignItems: 'center', 
-                        justifyContent: 'center', marginTop : 40, marginBottom: 20
+                        borderTopWidth: 1, alignItems: 'center',
+                        justifyContent: 'center', marginTop: 40, marginBottom: 20
                     }}>
                         <Text
                             style={{
@@ -149,7 +154,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 8,
         borderColor: '#FFBF23',
-        borderWidth: 1, 
+        borderWidth: 1,
         marginBottom: 30
     }
 });

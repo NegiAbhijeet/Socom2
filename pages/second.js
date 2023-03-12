@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from 'react-native';
 import React from 'react';
-
+// import Test from './test';
 import MainHeading from '../components/mainHeading/index';
 import Card from '../components/cards/index';
 import Header from './Header';
@@ -13,7 +13,8 @@ const data = [
 const Second = () => {
   return (
     <View >
-      <Header isLabel={true} label={"Live Shop"}/>
+      
+      {/* <Test/> */}
       <MainHeading text='Fashion' />
       <View style={{ flexDirection: 'row', flexWrap: "wrap", gap: 8, justifyContent: 'center' }}>
         {data.map((item) => {
